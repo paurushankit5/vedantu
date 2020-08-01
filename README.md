@@ -44,7 +44,7 @@ This is the table where all the actual data of aproduct is stored.
 --header 'Content-Type: application/json' \
 --data-raw '{
     "user_id": 1,
-    "productss": [
+    "products": [
         {
             "product_id": 1,
             "qty": 3,
@@ -55,4 +55,22 @@ This is the table where all the actual data of aproduct is stored.
         }
     ]
 }'
+
+
+### Steps for placing an order
+- Create entry in the order table with user_id only.
+- For each items in the payload, check if the quantity is appropriate
+- If quantity is available, update sku table
+> update reserved_qty -=  requested_qty
+- Insert into reserved_products table with the order_id, expiry_time, quantity and sku_id
+- Insert into order_items table for each product requested (sku_id is ionserted) with qty and price
+- Update quantity column of the sku table, once the order_item is added
+> update quantity -= requested_qty
+- Update total_price_value of the order table 
+
+
+## TODO:
+- write a set of code that runs on every minute and update the unreserved_quantity of sku for each row present in the reserved_products table and current_time >expires_on. This basically means, placing order has been cancelled in between and the stock needs to be refreshed for that particular sku_id.
+
+
 
