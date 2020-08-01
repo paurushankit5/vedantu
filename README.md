@@ -2,7 +2,9 @@
 
 ## Steps to setup
 - Clone Repo
+> git clone https://github.com/paurushankit5/vedantu.git
 - Install Dependencies
+> npm install
 - Change the DB config for postgres in 'config/db.json' file (I have not used env file for the assignment)
 - Import DB from schema/db.sql
 - Command to start the Application
