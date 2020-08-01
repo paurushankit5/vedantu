@@ -68,6 +68,7 @@ This is the table where all the actual data of aproduct is stored.
 - Insert into order_items table for each product requested (sku_id is ionserted) with qty and price
 - Update quantity column of the sku table, once the order_item is added
 > update quantity -= requested_qty
+- Dlete entry in reserved_products table for the order_item.
 - Update total_price_value of the order table 
 
 
