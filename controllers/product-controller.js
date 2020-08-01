@@ -10,6 +10,10 @@ class ProductController{
         return abc
     }
 
+    //TODO:  write a set of code that runs on every minute and update the unreserved_quantity of sku 
+    //for each row present in the reserved_products table and current_time > expires_on.
+    //This basically means, placing order has been cancelled ion between and the stock needs to be refreshed
+
     async placeOrder(payload){
         try{
             const validatedPayload = await this.validateOrderPayload(payload)
