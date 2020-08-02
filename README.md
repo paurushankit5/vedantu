@@ -58,6 +58,16 @@ This is the table where all the actual data of aproduct is stored.
     ]
 }'
 
+- The variant details in payload body is also a key value pair which is nothing but the ids of filters and filter_values.
+> {
+  "1": "1",
+  "2": "4"
+}
+- This json resembles
+> {
+  "filter_id_1": "filter_value_id_1",
+  "filter_id_2": "filter_value_id_2"
+}
 
 ### Steps for placing an order
 - Create entry in the order table with user_id only.
